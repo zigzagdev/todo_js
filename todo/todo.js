@@ -1,6 +1,5 @@
 const addTask = document.querySelector('.add');
-const list = document.querySelector('.todos');const addTask = document.querySelector('.add');
-const list = document.querySelector('.todos');
+const list = document.querySelector('.todo_s');
 
 const createTodoList = task => {
     // HTML テンプレートを生成
@@ -14,10 +13,5 @@ const createTodoList = task => {
 
 addTask.addEventListener('submit', e => {
     e.preventDefault();
-    list.innerHTML += html;
 }
-
-addTask.addEventListener('submit', e => {
-    // デフォルトのイベントを無効
-    e.preventDefault();
 

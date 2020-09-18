@@ -15,3 +15,17 @@ input[type=text]:focus {
     background: rgba(0, 0, 0, 0.2);
     max-width: 400px;
 }
+
+.todos li {
+    background: #2c4b79;
+}
+
+/* 追加 */
+.delete {
+    cursor: pointer;
+    color: orange;
+}
+
+.filtered {
+    display : none !important;
+}.

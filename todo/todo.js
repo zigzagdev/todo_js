@@ -12,6 +12,42 @@ const createTodoList = task => {
 }
 
 addTask.addEventListener('submit', e => {
+    // デフォルトのイベントを無効
     e.preventDefault();
-}
 
+    // タスクに入力した値を空白を除外して格納
+    const task = addTask.add.value.trim();
+    if(task.length) {
+        // Todo List の HTML を作成
+        createTodoList(task);
+        // タスクに入力した文字をクリア
+        addTask.reset();
+    }
+});
+
+list.addEventListener('click', e => {
+    if (e.target.classList.contains('delete')){
+        e.target.parentElement.remove();
+    }
+});
+
+const search = document.querySelector('.search input');
+
+
+const filterTasks = (term) => {
+
+    Array.from(list.children)
+    // フィルタ条件
+        .filter((todo) => !todo.textContent.toLowerCase().includes(term))
+        .forEach((todo) => todo.classList.add('filtered'));
+
+    Array.from(list.children)
+        .filter((todo) => todo.textContent.toLowerCase().includes(term))
+        .forEach((todo) => todo.classList.remove('filtered'));
+};
+
+search.addEventListener('keyup', () => {
+    // 空白削除かつ、小文字に変換(大文字・小文字の区別をなくす)
+    const term = search.value.trim().toLowerCase();
+    filterTasks(term);
+});

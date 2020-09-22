@@ -12,4 +12,8 @@ class PostsController < ApplicationController
     @post.create(content: params[:content])
     redirect_to action: :index
   end
+
+  def edit
+
+  end
 end
